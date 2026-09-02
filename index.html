@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>모바일 청첩장</title>
+
+  <!-- Config (must load first) -->
+  <script src="config/config.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600&family=Gowun+Batang:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Dynamic Meta -->
+  <script>
+    document.title = CONFIG.meta.title;
+    document.head.insertAdjacentHTML('beforeend',
+      `<meta property="og:title" content="${CONFIG.meta.title}">
+       <meta property="og:description" content="${CONFIG.meta.description}">
+       <meta property="og:image" content="${CONFIG.meta.ogImage}">
+       <meta name="description" content="${CONFIG.meta.description}">`
+    );
+  </script>
+</head>
+
+<body>
+
+  <!-- ============ COVER ============ -->
+  <section id="cover" class="section">
+    <div class="cover-inner">
+      <p class="cover-label fade-in">WEDDING INVITATION</p>
+      <div class="cover-image-wrapper fade-in">
+        <img id="cover-img" src="" alt="메인 사진">
+      </div>
+      <div class="cover-names fade-in">
+        <span id="cover-groom"></span>
+        <span class="ampersand">&amp;</span>
+        <span id="cover-bride"></span>
+      </div>
+      <p class="cover-date fade-in" id="cover-date"></p>
+      <div class="scroll-indicator fade-in">
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GREETING ============ -->
+  <section id="greeting" class="section">
+    <div class="section-inner">
+      <div class="ornament fade-up">&#10044;</div>
+      <h2 class="section-title fade-up" id="greeting-title"></h2>
+      <p class="greeting-message fade-up" id="greeting-message"></p>
+      <div class="couple-info fade-up">
+        <p id="couple-groom-parents"></p>
+        <p id="couple-bride-parents"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-up">GALLERY</h2>
+      <div class="gallery-slider fade-up">
+        <div class="gallery-track" id="gallery-track"></div>
+        <button class="gallery-btn gallery-prev" id="gallery-prev">&#8249;</button>
+        <button class="gallery-btn gallery-next" id="gallery-next">&#8250;</button>
+        <div class="gallery-dots" id="gallery-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WEDDING INFO (Calendar + Location with tabs) ============ -->
+  <section id="wedding-info" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-up">예식 일시 &amp; 오시는 길</h2>
+      <div class="region-tabs fade-up" id="region-tabs"></div>
+      <div id="wedding-content"></div>
+    </div>
+  </section>
+
+  <!-- ============ ACCOUNT ============ -->
+  <section id="account" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-up">마음 전하실 곳</h2>
+      <p class="account-desc fade-up">축하의 마음을 전해주세요</p>
+
+      <div class="account-group fade-up">
+        <button class="account-toggle" data-target="groom-accounts">
+          <span>신랑측 계좌번호</span>
+          <span class="toggle-icon">&#9662;</span>
+        </button>
+        <div class="account-list" id="groom-accounts"></div>
+      </div>
+
+      <div class="account-group fade-up">
+        <button class="account-toggle" data-target="bride-accounts">
+          <span>신부측 계좌번호</span>
+          <span class="toggle-icon">&#9662;</span>
+        </button>
+        <div class="account-list" id="bride-accounts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHARE ============ -->
+  <section id="share" class="section">
+    <div class="section-inner">
+      <h2 class="section-title fade-up">공유하기</h2>
+      <div class="share-buttons fade-up">
+        <button class="share-btn" id="btn-share-link">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+              fill="#3a3a3a" />
+          </svg>
+          <span>링크 복사</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p class="footer-copyright">&copy; Henry Wedding Corporation. All rights reserved.</p>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Kakao SDK -->
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js" crossorigin="anonymous"></script>
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
